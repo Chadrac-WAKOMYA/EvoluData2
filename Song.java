@@ -10,11 +10,20 @@ public class Song {
         this.nextSong = nextSong;
     }
 
+    // Détection de cycle avec l’algorithme du lièvre et de la tortue
     public boolean isInRepeatingPlaylist() {
-        if(!this.nextSong){
-            return false;
+        Song slow = this;   // pointeur lent
+        Song fast = this;   // pointeur rapide
+
+        while (fast != null && fast.nextSong != null) {
+            slow = slow.nextSong;              // avance d’un pas
+            fast = fast.nextSong.nextSong;     // avance de deux pas
+
+            if (slow == fast) {
+                return true; // cycle détecté
+            }
         }
-        retrun true;
+        return false; // pas de cycle
     }
 
     public static void main(String[] args) {
@@ -24,6 +33,6 @@ public class Song {
         first.setNextSong(second);
         second.setNextSong(first);
 
-        System.out.println(first.isInRepeatingPlaylist());
+        System.out.println(first.isInRepeatingPlaylist()); // true
     }
 }
