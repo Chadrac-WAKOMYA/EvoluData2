@@ -11,7 +11,10 @@ public class Song {
     }
 
     public boolean isInRepeatingPlaylist() {
-        throw new UnsupportedOperationException("Waiting to be implemented.");
+        if(!this.nextSong){
+            return false;
+        }
+        retrun true;
     }
 
     public static void main(String[] args) {
