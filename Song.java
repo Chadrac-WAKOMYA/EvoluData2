@@ -10,7 +10,7 @@ public class Song {
         this.nextSong = nextSong;
     }
 
-    // Détection de cycle avec l’algorithme du lièvre et de la tortue
+    //Détection de cycle avec l’algorithme du lièvre et de la tortue
     public boolean isInRepeatingPlaylist() {
         Song slow = this;   // pointeur lent
         Song fast = this;   // pointeur rapide
