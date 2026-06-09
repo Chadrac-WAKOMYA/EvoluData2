@@ -1,15 +1,17 @@
 public class GamePlatform {
     public static double calculateFinalSpeed(double initialSpeed, int[] inclinations) {
-        double realSpeed = 0;
-        if (initialSpeed > 0){
-            realSpeed = initialSpeed;
-            for(int i : inclinations){
-                if(realSpeed > Math.abs(i)){
-                    realSpeed += i;
-                }
-            }
+        double finalSpeed = initialSpeed;
+
+        for (int inclination : inclinations) {
+           if(inclination != 0){
+                    if(inclination > 0){
+                        finalSpeed -= inclination;
+                    } else {
+                        finalSpeed += Math.abs(inclination);
+                    }                    
+           }
         }
-        return realSpeed;
+        return finalSpeed < 0 ? 0 : finalSpeed;
     }
 
     public static void main(String[] args){
