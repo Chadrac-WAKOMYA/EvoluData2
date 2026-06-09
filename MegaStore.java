@@ -23,7 +23,7 @@ public class MegaStore {
                     return totalPrice * 0.82 ; // 18% de réduction
                 }
             default:
-                break;
+                return totalPrice;
         }
     }
     
