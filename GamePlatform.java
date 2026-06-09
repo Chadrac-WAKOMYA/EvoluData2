@@ -1,6 +1,15 @@
 public class GamePlatform {
     public static double calculateFinalSpeed(double initialSpeed, int[] inclinations) {
-        throw new UnsupportedOperationException("Waiting to be implemented.");
+        double realSpeed = 0;
+        if (initialSpeed > 0){
+            realSpeed = initialSpeed;
+            for(int i : inclinations){
+                if(realSpeed > Math.abs(i)){
+                    realSpeed += i;
+                }
+            }
+        }
+        return realSpeed;
     }
 
     public static void main(String[] args){
