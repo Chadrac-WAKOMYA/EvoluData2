@@ -9,7 +9,22 @@ public class MegaStore {
     public static double getDiscountedPrice(double cartWeight,
                                             double totalPrice,
                                             DiscountType discountType) {
-        throw new UnsupportedOperationException("Waiting to be implemented.");
+        
+        switch (discountType) {
+            case Standard:
+                return totalPrice * 0.94 ; // 6% de réduction
+            case Seasonal:
+                return totalPrice * 0.88 ; // 12% de réduction
+        
+            case Weight:
+                if(cartWeight <= 10){
+                    return totalPrice * 0.94 ; // 6% de réduction
+                }else{
+                    return totalPrice * 0.82 ; // 18% de réduction
+                }
+            default:
+                break;
+        }
     }
     
     public static void main(String[] args) {        
